@@ -1,6 +1,9 @@
-<input type="search" [value]="activatedRoute.snapshot.queryParams.search || ''" (input)="onInputChange($event.target)">
-<button (click)="showSearchResults()">Search</button>
-<button (click)="addProduct()">Add New Product</button>
+<header class= "header">
+  <input type="search" [value]="activatedRoute.snapshot.queryParams.search || ''"
+         (input)="onInputChange($event.target)">
+  <button (click)="showSearchResults()">Search</button>
+  <button (click)="addProduct()">Add New Product</button>
+</header>
 <table>
   <thead>
   <th *ngFor="let header of headerList">
