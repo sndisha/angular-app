@@ -1,0 +1,30 @@
+<input type="search" [value]="activatedRoute.snapshot.queryParams.search || ''" (input)="onInputChange($event.target)">
+<button (click)="showSearchResults()">Search</button>
+<button (click)="addProduct()">Add New Product</button>
+<table>
+  <thead>
+  <th *ngFor="let header of headerList">
+    {{header}}
+  </th>
+  </thead>
+  <tbody>
+  <tr (click)="goToProduct(product?.productId)" *ngFor="let product of productList | async; let prodIndex = index">
+    <td>
+      {{product?.productId}}
+    </td>
+    <td>
+      {{product?.productName}}
+    </td>
+    <td>
+      {{product?.productDescription}}
+    </td>
+    <td>
+      {{product?.productCount}}
+    </td>
+    <td (click)="deleteProduct(product?.productId, $event)">delete</td>
+  </tr>
+  </tbody>
+</table>
+<ng-container>
+
+</ng-container>

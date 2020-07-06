@@ -1,0 +1,34 @@
+<form [formGroup]="productForm" (submit)="saveDetails()">
+  <section>
+    <label>
+      <div>
+        Product Name<span *ngIf="productForm.get('productName').invalid">Error</span>
+      </div>
+      <input formControlName="productName">
+    </label>
+    <label>
+      <div>
+        Product Count <span *ngIf="productForm.get('productCount').invalid">Error</span>
+      </div>
+      <input type="number" formControlName="productCount">
+    </label>
+    <label>
+      <div>
+        Product Availability <span *ngIf="productForm.get('productIsAvailable').invalid">Error</span>
+      </div>
+      <input type="checkbox" formControlName="productIsAvailable">
+    </label>
+    <label>
+      <div>
+        Product Description <span *ngIf="productForm.get('productDescription').invalid">Error</span>
+      </div>
+      <textarea formControlName="productDescription"></textarea>
+    </label>
+  </section>
+
+  <footer>
+    <button type="submit">Save Details</button>
+    <p *ngIf="productForm.invalid"> The form is not complete</p>
+  </footer>
+</form>
+
