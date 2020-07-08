@@ -6,4 +6,4 @@ Clone the project.
 Run the following commands in Nodejs command prompt:
 npm install(Make sure you have latest nodejs installed in your system)
 ng serve
-open local:4200 - to see the app up and running
+open localhost:4200 - to see the app up and running
