@@ -18,6 +18,7 @@ import {SetCurrentProductName} from "../../crud-app-state/crud-app.action";
 export class ProductListComponent implements OnInit {
   headerList = [
     'ID',
+    'Image',
     'Name',
     'Description',
     'Count',
@@ -40,6 +41,10 @@ export class ProductListComponent implements OnInit {
     this.store.dispatch(new SetCurrentProductName('List View'));
   }
 
+  onScroll() {
+
+  }
+
   goToProduct(id) {
     this.router.navigate([id, 'view'], {
       relativeTo: this.activatedRoute
@@ -52,6 +57,10 @@ export class ProductListComponent implements OnInit {
       console.log(searchText);
       this.searchText = searchText;
     })
+  }
+
+  showImage(showFlag, item) {
+    item.showImage = true;
   }
 
   showSearchResults() {

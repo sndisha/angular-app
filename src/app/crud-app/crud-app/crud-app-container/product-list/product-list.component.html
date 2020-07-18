@@ -1,4 +1,4 @@
-<header class= "header">
+<header class="header">
   <input type="search" [value]="activatedRoute.snapshot.queryParams.search || ''"
          (input)="onInputChange($event.target)">
   <button (click)="showSearchResults()">Search</button>
@@ -11,9 +11,15 @@
   </th>
   </thead>
   <tbody>
-  <tr (click)="goToProduct(product?.productId)" *ngFor="let product of productList | async; let prodIndex = index">
+  <tr deferLoad (deferLoadAction)="showImage($event, product)" (click)="goToProduct(product?.productId)"
+      *ngFor="let product of productList | async; let prodIndex = index"
+  >
     <td>
       {{product?.productId}}
+    </td>
+    <td>
+      <img *ngIf="product?.showImage"
+           [src]="'http://placehold.it/1200x1200/FFFF00/000000&text='+ product.productName + prodIndex">
     </td>
     <td>
       {{product?.productName}}

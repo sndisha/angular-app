@@ -4,7 +4,7 @@ import {CrudAppContainerComponent} from './crud-app-container/crud-app-container
 import {ProductListComponent} from './crud-app-container/product-list/product-list.component';
 import {RouterModule, Routes} from "@angular/router";
 import {CrudAppGuard} from "./crud-app-guard/crud-app.guard";
-
+import {DeferLoadDirective} from "./crud-app-directives/defer-load.directive";
 
 const PRODUCT_ROUTES: Routes = [
   {
@@ -29,7 +29,7 @@ const PRODUCT_ROUTES: Routes = [
     CommonModule,
     RouterModule.forChild(PRODUCT_ROUTES)
   ],
-  declarations: [CrudAppContainerComponent, ProductListComponent],
+  declarations: [CrudAppContainerComponent, ProductListComponent, DeferLoadDirective],
   providers: [CrudAppGuard]
 })
 export class CrudAppModule {
